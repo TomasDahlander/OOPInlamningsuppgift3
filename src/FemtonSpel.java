@@ -1,8 +1,7 @@
 import javax.swing.*;
-import javax.swing.border.EtchedBorder;
+import javax.swing.border.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.util.*;
 
 public class FemtonSpel extends JFrame implements ActionListener {
@@ -68,9 +67,13 @@ public class FemtonSpel extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+
+
+
+
         if(e.getSource() == newgame){
             reset();
-           // shuffle();
+            shuffle();
         }
     }
 
@@ -78,3 +81,11 @@ public class FemtonSpel extends JFrame implements ActionListener {
         FemtonSpel start = new FemtonSpel();
     }
 }
+
+
+//TODO Skapa if satser för lyssnaren
+//TODO Skapa metod för att leta efter en knapp med tom text
+//TODO Skapa metod att byta textvärden i två st knappar
+//TODO Skapa metod för att läsa av om spelet är vunnit
+//TODO Skapa samlingsmetod för att ta utföra ett drag eller ej "Actioncall"
+//TODO DESGIN
