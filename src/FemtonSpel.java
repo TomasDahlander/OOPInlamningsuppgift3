@@ -89,6 +89,10 @@ public class FemtonSpel extends JFrame implements ActionListener {
         return ok;
     }
 
+    public void checkAction(){
+
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
 
