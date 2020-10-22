@@ -51,9 +51,9 @@ public class FemtonSpel extends JFrame implements ActionListener {
         Random nr = new Random();
         for(int i = 0; i <16; i++){
             int tmpIndex = nr.nextInt(16);
-            JButton tmpLabel = labels[tmpIndex]; // skapar en extra referens till index 7
-            labels[tmpIndex]=labels[i]; // sätts till index 0
-            labels[i]=tmpLabel; // sätts till index 7
+            JButton tmpLabel = labels[tmpIndex];
+            labels[tmpIndex]=labels[i];
+            labels[i]=tmpLabel;
         }
     }
 
@@ -93,8 +93,5 @@ public class FemtonSpel extends JFrame implements ActionListener {
 
 
 //TODO Skapa if satser för lyssnaren
-//TODO Skapa metod för att leta efter en knapp med tom text
-//TODO Skapa metod att byta textvärden i två st knappar
-//TODO Skapa metod för att läsa av om spelet är vunnit
 //TODO Skapa samlingsmetod för att ta utföra ett drag eller ej "Actioncall"
 //TODO DESGIN
