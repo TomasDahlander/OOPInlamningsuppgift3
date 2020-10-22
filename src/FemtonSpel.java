@@ -73,6 +73,21 @@ public class FemtonSpel extends JFrame implements ActionListener {
         labels[clickedIndex].setText("");
     }
 
+    public boolean isWinner(){
+        boolean ok = true;
+        for(int i = 0; i < labels.length; i++){
+            if(!labels[i].getText().equals(""+(i+1))){
+                ok = false; break;
+            }
+        }
+        if(ok) return ok;
+        for(int i = 1; i < labels.length; i++){
+            if(!labels[i].getText().equals(""+i));{
+                ok = false; break;
+            }
+        }
+        return ok;
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
