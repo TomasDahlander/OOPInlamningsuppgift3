@@ -65,10 +65,7 @@ public class FemtonSpel extends JFrame implements ActionListener {
     }
 
     public boolean nullFinder(int index){
-
-
-        
-        return true;
+        return labels[index].getText().equals("");
     }
 
     @Override
