@@ -67,7 +67,7 @@ public class FemtonSpel extends JFrame implements ActionListener {
     public boolean nullFinder(int index){
         return labels[index].getText().equals("");
     }
-    
+
     public boolean isWinner(){
         boolean ok = true;
         for(int i = 0; i < labels.length; i++){
@@ -86,8 +86,6 @@ public class FemtonSpel extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
-
 
 
         if(e.getSource() == newgame){
