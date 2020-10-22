@@ -74,15 +74,62 @@ public class FemtonSpel extends JFrame implements ActionListener {
     }
 
 
+
+
     @Override
     public void actionPerformed(ActionEvent e) {
-
-
-
-
         if(e.getSource() == newgame){
             reset();
             shuffle();
+        }
+        // ActionListeners for each button
+        if(e.getSource() == labels[0]) {
+            checkAction(0,1,4);
+        }
+        if(e.getSource() == labels[1]) {
+            checkAction(1,0,2,5);
+        }
+        if(e.getSource() == labels[2]) {
+            checkAction(2,1,3,6);
+        }
+        if(e.getSource() == labels[3]) {
+            checkAction(3,2,7);
+        }
+        if(e.getSource() == labels[4]) {
+            checkAction(4,0,5,8);
+        }
+        if(e.getSource() == labels[5]) {
+            checkAction(5,1,4,6,9);
+        }
+        if(e.getSource() == labels[6]) {
+            checkAction(6,2,5,7,10);
+        }
+        if(e.getSource() == labels[7]) {
+            checkAction(7,3,6,11);
+        }
+        if(e.getSource() == labels[8]) {
+            checkAction(8,4,9,12);
+        }
+        if(e.getSource() == labels[9]) {
+            checkAction(9,5,8,10,13);
+        }
+        if(e.getSource() == labels[10]) {
+            checkAction(10,6,9,11,14);
+        }
+        if(e.getSource() == labels[11]) {
+            checkAction(11,7,10,15);
+        }
+        if(e.getSource() == labels[12]) {
+            checkAction(12,8,13);
+        }
+        if(e.getSource() == labels[13]) {
+            checkAction(13,9,12,14);
+        }
+        if(e.getSource() == labels[14]) {
+            checkAction(14,10,13,15);
+        }
+        if(e.getSource() == labels[15]) {
+            checkAction(15,11,14);
         }
     }
 
