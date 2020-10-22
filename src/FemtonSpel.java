@@ -67,9 +67,6 @@ public class FemtonSpel extends JFrame implements ActionListener {
     public void changeValue(int clickedIndex, int nullIndex) {
         labels[nullIndex].setText(labels[clickedIndex].getText());
         labels[clickedIndex].setText("");
-
-        // Null index vill ha clicked index
-        // Clicked index ska bli null/""
     }
 
 
