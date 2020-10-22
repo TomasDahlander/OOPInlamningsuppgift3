@@ -64,6 +64,12 @@ public class FemtonSpel extends JFrame implements ActionListener {
         }
     }
 
+    public boolean nullFinder(int index){
+
+
+        
+        return true;
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
