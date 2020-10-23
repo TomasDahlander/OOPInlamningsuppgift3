@@ -20,11 +20,11 @@ public class FemtonSpel extends JFrame implements ActionListener {
         addLabels();
         shuffle();
         addLabelsToFrame();
+
         newgame.addActionListener(this);
         for(int i = 0; i < labels.length; i++){
             labels[i].addActionListener(this);
         }
-
 
         setLocation(200,200);
         setSize(350,400);
@@ -171,7 +171,10 @@ public class FemtonSpel extends JFrame implements ActionListener {
 //        if(e.getSource() == labels[0]) {
 //            checkAction(0,1,4);
 //        }
-        labels[0] = (e) -> checkAction(0,1,4);
+        labels[0] = (e1) -> checkAction(0,1,4);
+        labels[0].addActionListener(e -> System.out.println("Handled by Lambda listener"));
+        labels[0].addActionListener(e1 -> checkAction(0,1,4));
+
         if(e.getSource() == labels[1]) {
             checkAction(1,0,2,5);
         }
@@ -216,14 +219,6 @@ public class FemtonSpel extends JFrame implements ActionListener {
         }
         if(e.getSource() == labels[15]) {
             checkAction(15,11,14);
-        }
-    }
-
-    class MyEventClass implements ActionListener {
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            labels[0] = (e) -> checkAction(0,1,4);
         }
     }
 
