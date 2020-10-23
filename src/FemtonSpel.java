@@ -204,5 +204,4 @@ public class FemtonSpel extends JFrame implements ActionListener {
     }
 }
 
-//TODO Assigna listerners till knapparna i arrayen
 //TODO DESGIN
