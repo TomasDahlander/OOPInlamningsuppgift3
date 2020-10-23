@@ -31,7 +31,7 @@ public class FemtonSpel extends JFrame implements ActionListener {
             bricks[i].addActionListener(this);
         }
 
-        setLocation(200,200);
+        setLocation(300,200);
         setSize(350,400);
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -88,11 +88,7 @@ public class FemtonSpel extends JFrame implements ActionListener {
 
         if(ok){
             changeValue(pressedIndex, changeIndex);
-            if(isWinner()){
-                JOptionPane.showMessageDialog(null,"Grattis!\nDu klara spelet!");
-                reset();
-                shuffle();
-            }
+            if(isWinner()) declareWinner();
         }
     }
 
@@ -105,11 +101,7 @@ public class FemtonSpel extends JFrame implements ActionListener {
 
         if(ok){
             changeValue(pressedIndex, changeIndex);
-            if(isWinner()){
-                JOptionPane.showMessageDialog(null,"Grattis!\nDu klara spelet!");
-                reset();
-                shuffle();
-            }
+            if(isWinner()) declareWinner();
         }
     }
 
@@ -123,11 +115,7 @@ public class FemtonSpel extends JFrame implements ActionListener {
 
         if(ok){
             changeValue(pressedIndex, changeIndex);
-            if(isWinner()){
-                JOptionPane.showMessageDialog(null,"Grattis!\nDu klara spelet!");
-                reset();
-                shuffle();
-            }
+            if(isWinner()) declareWinner();
         }
     }
 
@@ -158,6 +146,12 @@ public class FemtonSpel extends JFrame implements ActionListener {
         if(convertArrayToString().equals("123456789101112131415 ")) return true;
         if(convertArrayToString().equals(" 123456789101112131415")) return true;
         else return false;
+    }
+
+    public void declareWinner(){
+        JOptionPane.showMessageDialog(null,"Grattis!\nDu vann spelet!");
+        reset();
+        shuffle();
     }
 
     public void reset(){
