@@ -131,7 +131,7 @@ public class FemtonSpel extends JFrame implements ActionListener {
         if(nullFinder(checkIndex1)) {ok = true; changeIndex = checkIndex1;}
         else if(nullFinder(checkIndex2)) {ok = true; changeIndex = checkIndex2;}
         else if(nullFinder(checkIndex3)) {ok = true; changeIndex = checkIndex3;}
-        else if(nullFinder(checkIndex3)) {ok = true; changeIndex = checkIndex4;}
+        else if(nullFinder(checkIndex4)) {ok = true; changeIndex = checkIndex4;}
 
         if(ok){
             changeValue(pressedIndex, changeIndex);
