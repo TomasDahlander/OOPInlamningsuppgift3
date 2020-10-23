@@ -49,7 +49,7 @@ public class FemtonSpel extends JFrame implements ActionListener {
 
     public void shuffle(){
         Random nr = new Random();
-        for(int i = 0; i <16; i++){
+        for(int i = 0; i <labels.length; i++){
             int tmpIndex = nr.nextInt(16);
             JButton tmpLabel = labels[tmpIndex];
             labels[tmpIndex]=labels[i];
@@ -139,8 +139,7 @@ public class FemtonSpel extends JFrame implements ActionListener {
             }
         }
     }
-
-
+    
     @Override
     public void actionPerformed(ActionEvent e) {
 
@@ -158,7 +157,5 @@ public class FemtonSpel extends JFrame implements ActionListener {
     }
 }
 
-
-//TODO Skapa if satser för lyssnaren
-//TODO Skapa samlingsmetod för att ta utföra ett drag eller ej "Actioncall"
+//TODO Assigna listerners till knapparna i arrayen
 //TODO DESGIN
