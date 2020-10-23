@@ -9,6 +9,7 @@ public class FemtonSpel extends JFrame implements ActionListener {
     JButton newgame = new JButton("Nytt spel");
     JPanel panel = new JPanel();
     JButton[] labels = new JButton[16];
+    String empty = " ";
 
 
     public FemtonSpel(){
@@ -17,7 +18,7 @@ public class FemtonSpel extends JFrame implements ActionListener {
         newgame.setHorizontalAlignment(SwingConstants.CENTER);
         add(panel,BorderLayout.CENTER);
         addLabels();
-        shuffle();
+       // shuffle();   // Kommentera bort för redovisning av vinst
         addLabelsToFrame();
         newgame.addActionListener(this);
         for(int i = 0; i < labels.length; i++){
@@ -31,17 +32,10 @@ public class FemtonSpel extends JFrame implements ActionListener {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
-    public void addLabelsToFrame(){
-        for(int i = 0; i < labels.length; i++){
-            panel.add(labels[i]);
-
-        }
-    }
-
     public void addLabels(){
         for(int i = 0; i < labels.length; i++){
             if(i == 15){
-                labels[15] = new JButton("");
+                labels[15] = new JButton(empty);
                 labels[15].setBorder(new EtchedBorder());
             }
             else {
@@ -61,38 +55,13 @@ public class FemtonSpel extends JFrame implements ActionListener {
         }
     }
 
-    public void reset(){
+    public void addLabelsToFrame(){
         for(int i = 0; i < labels.length; i++){
-            if(i == 15) labels[15].setText("");
-            else labels[i].setText(""+(i+1));
+            panel.add(labels[i]);
+
         }
     }
-
-    public boolean nullFinder(int index){
-        return labels[index].getText().equals("");
-    }
-
-    public void changeValue(int clickedIndex, int nullIndex) {
-        labels[nullIndex].setText(labels[clickedIndex].getText());
-        labels[clickedIndex].setText("");
-    }
-
-    public boolean isWinner(){
-        boolean ok = true;
-        for(int i = 0; i < labels.length; i++){
-            if(!labels[i].getText().equals(""+(i+1))){
-                ok = false; break;
-            }
-        }
-        if(ok) return ok;
-        for(int i = 1; i < labels.length; i++){
-            if(!labels[i].getText().equals(""+i));{
-                ok = false; break;
-            }
-        }
-        return ok;
-    }
-
+    
     public void checkAction(int pressedIndex, int checkIndex1, int checkIndex2){
         boolean ok = false;
         int changeIndex = 0;
@@ -141,6 +110,36 @@ public class FemtonSpel extends JFrame implements ActionListener {
                 reset();
                 shuffle();
             }
+        }
+    }
+
+    public boolean nullFinder(int index){
+        return labels[index].getText().equals(empty);
+    }
+
+    public void changeValue(int clickedIndex, int nullIndex) {
+        labels[nullIndex].setText(labels[clickedIndex].getText());
+        labels[clickedIndex].setText(empty);
+    }
+
+    public String convertArrayToString() {
+        String result = "";
+        for(int i = 0; i < labels.length; i++){
+            result += labels[i].getText();
+        }
+        return result;
+    }
+
+    public boolean isWinner(){
+        if(convertArrayToString().equals("123456789101112131415 ")) return true;
+        if(convertArrayToString().equals(" 123456789101112131415")) return true;
+        else return false;
+    }
+
+    public void reset(){
+        for(int i = 0; i < labels.length; i++){
+            if(i == 15) labels[15].setText(empty);
+            else labels[i].setText(""+(i+1));
         }
     }
 
