@@ -15,6 +15,8 @@ public class FemtonSpel extends JFrame implements ActionListener {
         panel.setLayout(new GridLayout(4,4));
         add(newgame,BorderLayout.NORTH);
         newgame.setHorizontalAlignment(SwingConstants.CENTER);
+        //newgame.setBackground(Color.YELLOW);
+        //newgame.setSize();
         add(panel,BorderLayout.CENTER);
         addLabels();
         shuffle();
@@ -42,13 +44,14 @@ public class FemtonSpel extends JFrame implements ActionListener {
         for(int i = 0; i < labels.length; i++){
             if(i == 15){
                 labels[15] = new JButton("");
-                labels[15].setBorder(new EtchedBorder());
+                labels[15].setBorder(new BevelBorder(BevelBorder.RAISED));
                 labels[i].setFont(new Font("Monospaced", Font.BOLD, 20));
                 labels[i].setBackground(Color.PINK);
             }
             else {
                 labels[i] = new JButton("" + (i + 1));
-                labels[i].setBorder(new EtchedBorder());
+                //labels[i].setBorder(new EtchedBorder());
+                labels[i].setBorder(new BevelBorder(BevelBorder.RAISED));
                 labels[i].setFont(new Font("Monospaced", Font.BOLD, 20));
                 labels[i].setBackground(Color.PINK);
             }
@@ -58,10 +61,17 @@ public class FemtonSpel extends JFrame implements ActionListener {
     public void shuffle(){
         Random nr = new Random();
         for(int i = 0; i <labels.length; i++){
+            labels[i].setBorder(new BevelBorder(BevelBorder.RAISED));
             int tmpIndex = nr.nextInt(labels.length);
             String tmp = labels[tmpIndex].getText();
             labels[tmpIndex].setText(labels[i].getText());
             labels[i].setText(tmp);
+        }
+        for (int i = 0; i < labels.length; i++) {
+            if(labels[i].getText().equals("")){
+                labels[i].setBorder(new BevelBorder(BevelBorder.LOWERED));
+                break;
+            }
         }
     }
 
@@ -152,7 +162,7 @@ public class FemtonSpel extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == newgame){
             reset();
-            //shuffle();
+            shuffle();
         }
         // ActionListeners for each button
         if(e.getSource() == labels[0]) {
