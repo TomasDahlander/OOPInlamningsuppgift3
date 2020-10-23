@@ -151,7 +151,8 @@ public class FemtonSpel extends JFrame implements ActionListener {
     public void declareWinner(){
         JOptionPane.showMessageDialog(null, null,("WINNER!"), JOptionPane.PLAIN_MESSAGE, new ImageIcon("src\\images\\victorysweet.gif"));
         reset();
-        shuffle();
+        // shuffle();
+        shuffleByHand();
     }
 
     public void reset(){
@@ -161,11 +162,36 @@ public class FemtonSpel extends JFrame implements ActionListener {
         }
     }
 
+    public void shuffleByHand(){
+        Random rand = new Random();
+        for(int i = 0; i < 50000; i++){
+            int move = rand.nextInt(16);
+            if(move == 0) checkAction(0,1,4);
+            if(move == 1)checkAction(1,0,2,5);
+            if(move == 2)checkAction(2,1,3,6);
+            if(move == 3)checkAction(3,2,7);
+            if(move == 4)checkAction(4,0,5,8);
+            if(move == 5)checkAction(5,1,4,6,9);
+            if(move == 6)checkAction(6,2,5,7,10);
+            if(move == 7)checkAction(7,3,6,11);
+            if(move == 8)checkAction(8,4,9,12);
+            if(move == 9)checkAction(9,5,8,10,13);
+            if(move == 10)checkAction(10,6,9,11,14);
+            if(move == 11)checkAction(11,7,10,15);
+            if(move == 12)checkAction(12,8,13);
+            if(move == 13)checkAction(13,9,12,14);
+            if(move == 14)checkAction(14,10,13,15);
+            if(move == 15)checkAction(15,11,14);
+        }
+
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == newgame){
             reset();
-            shuffle();
+           // shuffle();
+            shuffleByHand();
         }
         // ActionListeners for each button
         if(e.getSource() == bricks[0]) {
