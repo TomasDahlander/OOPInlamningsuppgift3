@@ -55,9 +55,9 @@ public class FemtonSpel extends JFrame implements ActionListener {
         Random nr = new Random();
         for(int i = 0; i <labels.length; i++){
             int tmpIndex = nr.nextInt(labels.length);
-            JButton tmpLabel = labels[tmpIndex];
-            labels[tmpIndex]=labels[i];
-            labels[i]=tmpLabel;
+            String tmp = labels[tmpIndex].getText();
+            labels[tmpIndex].setText(labels[i].getText());
+            labels[i].setText(tmp);
         }
     }
 
