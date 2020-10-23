@@ -24,8 +24,7 @@ public class FemtonSpel extends JFrame implements ActionListener {
         for(int i = 0; i < labels.length; i++){
             labels[i].addActionListener(this);
         }
-
-
+        
         setLocation(200,200);
         setSize(350,400);
         setVisible(true);
