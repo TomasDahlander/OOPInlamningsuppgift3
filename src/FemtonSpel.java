@@ -149,7 +149,7 @@ public class FemtonSpel extends JFrame implements ActionListener {
     }
 
     public void declareWinner(){
-        JOptionPane.showMessageDialog(null, null/*"Grattis!\nDu vann spelet!"*/,("WINNER!"), JOptionPane.PLAIN_MESSAGE, new ImageIcon("src\\images\\victorysweet.gif"));
+        JOptionPane.showMessageDialog(null, null,("WINNER!"), JOptionPane.PLAIN_MESSAGE, new ImageIcon("src\\images\\victorysweet.gif"));
         reset();
         shuffle();
     }
