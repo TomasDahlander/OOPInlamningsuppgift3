@@ -24,6 +24,7 @@ public class FemtonSpel extends JFrame implements ActionListener {
             labels[i].addActionListener(this);
         }
 
+
         setLocation(200,200);
         setSize(350,400);
         setVisible(true);
@@ -53,7 +54,7 @@ public class FemtonSpel extends JFrame implements ActionListener {
     public void shuffle(){
         Random nr = new Random();
         for(int i = 0; i <labels.length; i++){
-            int tmpIndex = nr.nextInt(16);
+            int tmpIndex = nr.nextInt(labels.length);
             JButton tmpLabel = labels[tmpIndex];
             labels[tmpIndex]=labels[i];
             labels[i]=tmpLabel;
@@ -142,8 +143,6 @@ public class FemtonSpel extends JFrame implements ActionListener {
             }
         }
     }
-
-
 
     @Override
     public void actionPerformed(ActionEvent e) {
