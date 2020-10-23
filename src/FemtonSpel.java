@@ -6,7 +6,7 @@ import java.util.*;
 
 public class FemtonSpel extends JFrame implements ActionListener {
 
-    JButton newgame = new JButton("Nytt spel");
+    JButton newgame = new JButton("New Game");
     JPanel gamePanel = new JPanel();
     JPanel topPanel = new JPanel();
     JButton[] bricks = new JButton[16];
