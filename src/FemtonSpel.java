@@ -11,20 +11,18 @@ public class FemtonSpel extends JFrame implements ActionListener {
     JButton[] labels = new JButton[16];
     String empty = " ";
 
-
     public FemtonSpel(){
         panel.setLayout(new GridLayout(4,4));
         add(newgame,BorderLayout.NORTH);
         newgame.setHorizontalAlignment(SwingConstants.CENTER);
         add(panel,BorderLayout.CENTER);
         addLabels();
-        shuffle();
+      //  shuffle(); // Kommentera bort denna shuffle för redovisning av vinst
         addLabelsToFrame();
         newgame.addActionListener(this);
         for(int i = 0; i < labels.length; i++){
             labels[i].addActionListener(this);
         }
-
 
         setLocation(200,200);
         setSize(350,400);
@@ -36,9 +34,10 @@ public class FemtonSpel extends JFrame implements ActionListener {
         for(int i = 0; i < labels.length; i++){
             if(i == 15){
                 labels[15] = new JButton(empty);
-                labels[15].setBorder(new BevelBorder(BevelBorder.RAISED));
+                labels[15].setBorder(new BevelBorder(BevelBorder.LOWERED));
                 labels[i].setFont(new Font("Monospaced", Font.BOLD, 20));
                 labels[i].setBackground(Color.PINK);
+                labels[i].setVisible(false);
             }
             else {
                 labels[i] = new JButton("" + (i + 1));
