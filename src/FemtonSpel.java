@@ -168,9 +168,10 @@ public class FemtonSpel extends JFrame implements ActionListener {
             shuffle();
         }
         // ActionListeners for each button
-        if(e.getSource() == labels[0]) {
-            checkAction(0,1,4);
-        }
+//        if(e.getSource() == labels[0]) {
+//            checkAction(0,1,4);
+//        }
+        labels[0] = (e) -> checkAction(0,1,4);
         if(e.getSource() == labels[1]) {
             checkAction(1,0,2,5);
         }
@@ -215,6 +216,14 @@ public class FemtonSpel extends JFrame implements ActionListener {
         }
         if(e.getSource() == labels[15]) {
             checkAction(15,11,14);
+        }
+    }
+
+    class MyEventClass implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            labels[0] = (e) -> checkAction(0,1,4);
         }
     }
 
