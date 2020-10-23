@@ -13,6 +13,7 @@ public class FemtonSpel extends JFrame implements ActionListener {
     String empty = " ";
 
     public FemtonSpel(){
+        setTitle("Fifteen - It's in the Game");
         topPanel.setLayout(new FlowLayout());
         newgame.setSize(50,25);
         newgame.setBackground(new Color(173, 192, 203));
