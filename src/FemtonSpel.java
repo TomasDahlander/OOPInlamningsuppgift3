@@ -149,7 +149,8 @@ public class FemtonSpel extends JFrame implements ActionListener {
     }
 
     public void declareWinner(){
-        JOptionPane.showMessageDialog(null, null,("WINNER!"), JOptionPane.PLAIN_MESSAGE, new ImageIcon("src\\images\\victorysweet.gif"));
+        JOptionPane.showMessageDialog(null, null,("WINNER!"),
+                                    JOptionPane.PLAIN_MESSAGE, new ImageIcon("src\\images\\victorysweet.gif"));
         reset();
         shuffle();
     }
@@ -170,50 +171,35 @@ public class FemtonSpel extends JFrame implements ActionListener {
         // ActionListeners for each button
         if(e.getSource() == bricks[0]) {
             checkAction(0,1,4);
-        }
-        if(e.getSource() == bricks[1]) {
+        } else if(e.getSource() == bricks[1]) {
             checkAction(1,0,2,5);
-        }
-        if(e.getSource() == bricks[2]) {
+        } else if(e.getSource() == bricks[2]) {
             checkAction(2,1,3,6);
-        }
-        if(e.getSource() == bricks[3]) {
+        } else if(e.getSource() == bricks[3]) {
             checkAction(3,2,7);
-        }
-        if(e.getSource() == bricks[4]) {
+        } else if(e.getSource() == bricks[4]) {
             checkAction(4,0,5,8);
-        }
-        if(e.getSource() == bricks[5]) {
+        } else if(e.getSource() == bricks[5]) {
             checkAction(5,1,4,6,9);
-        }
-        if(e.getSource() == bricks[6]) {
+        } else if(e.getSource() == bricks[6]) {
             checkAction(6,2,5,7,10);
-        }
-        if(e.getSource() == bricks[7]) {
+        } else if(e.getSource() == bricks[7]) {
             checkAction(7,3,6,11);
-        }
-        if(e.getSource() == bricks[8]) {
+        } else if(e.getSource() == bricks[8]) {
             checkAction(8,4,9,12);
-        }
-        if(e.getSource() == bricks[9]) {
+        } else if(e.getSource() == bricks[9]) {
             checkAction(9,5,8,10,13);
-        }
-        if(e.getSource() == bricks[10]) {
+        } else if(e.getSource() == bricks[10]) {
             checkAction(10,6,9,11,14);
-        }
-        if(e.getSource() == bricks[11]) {
+        } else if(e.getSource() == bricks[11]) {
             checkAction(11,7,10,15);
-        }
-        if(e.getSource() == bricks[12]) {
+        } else if(e.getSource() == bricks[12]) {
             checkAction(12,8,13);
-        }
-        if(e.getSource() == bricks[13]) {
+        } else if(e.getSource() == bricks[13]) {
             checkAction(13,9,12,14);
-        }
-        if(e.getSource() == bricks[14]) {
+        } else if(e.getSource() == bricks[14]) {
             checkAction(14,10,13,15);
-        }
-        if(e.getSource() == bricks[15]) {
+        } else if(e.getSource() == bricks[15]) {
             checkAction(15,11,14);
         }
     }
