@@ -89,9 +89,57 @@ public class FemtonSpel extends JFrame implements ActionListener {
         return ok;
     }
 
-    public void checkAction(){
+    public void checkAction(int pressedIndex, int checkIndex1, int checkIndex2){
+        boolean ok = false;
+        int changeIndex = 0;
+        if(nullFinder(checkIndex1)) {ok = true; changeIndex = checkIndex1;}
+        else if(nullFinder(checkIndex2)) {ok = true; changeIndex = checkIndex2;}
 
+        if(ok){
+            changeValue(pressedIndex, changeIndex);
+            if(isWinner()){
+                JOptionPane.showMessageDialog(null,"Grattis!\nDu klara spelet!");
+                reset();
+                shuffle();
+            }
+        }
     }
+
+    public void checkAction(int pressedIndex, int checkIndex1, int checkIndex2, int checkIndex3){
+        boolean ok = false;
+        int changeIndex = 0;
+        if(nullFinder(checkIndex1)) {ok = true; changeIndex = checkIndex1;}
+        else if(nullFinder(checkIndex2)) {ok = true; changeIndex = checkIndex2;}
+        else if(nullFinder(checkIndex3)) {ok = true; changeIndex = checkIndex3;}
+
+        if(ok){
+            changeValue(pressedIndex, changeIndex);
+            if(isWinner()){
+                JOptionPane.showMessageDialog(null,"Grattis!\nDu klara spelet!");
+                reset();
+                shuffle();
+            }
+        }
+    }
+
+    public void checkAction(int pressedIndex, int checkIndex1, int checkIndex2, int checkIndex3, int checkIndex4){
+        boolean ok = false;
+        int changeIndex = 0;
+        if(nullFinder(checkIndex1)) {ok = true; changeIndex = checkIndex1;}
+        else if(nullFinder(checkIndex2)) {ok = true; changeIndex = checkIndex2;}
+        else if(nullFinder(checkIndex3)) {ok = true; changeIndex = checkIndex3;}
+        else if(nullFinder(checkIndex3)) {ok = true; changeIndex = checkIndex4;}
+
+        if(ok){
+            changeValue(pressedIndex, changeIndex);
+            if(isWinner()){
+                JOptionPane.showMessageDialog(null,"Grattis!\nDu klara spelet!");
+                reset();
+                shuffle();
+            }
+        }
+    }
+
 
     @Override
     public void actionPerformed(ActionEvent e) {
