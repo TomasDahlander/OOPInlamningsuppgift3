@@ -43,10 +43,14 @@ public class FemtonSpel extends JFrame implements ActionListener {
             if(i == 15){
                 labels[15] = new JButton("");
                 labels[15].setBorder(new EtchedBorder());
+                labels[i].setFont(new Font("Monospaced", Font.BOLD, 20));
+                labels[i].setBackground(Color.PINK);
             }
             else {
                 labels[i] = new JButton("" + (i + 1));
                 labels[i].setBorder(new EtchedBorder());
+                labels[i].setFont(new Font("Monospaced", Font.BOLD, 20));
+                labels[i].setBackground(Color.PINK);
             }
         }
     }
@@ -148,7 +152,7 @@ public class FemtonSpel extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == newgame){
             reset();
-            shuffle();
+            //shuffle();
         }
         // ActionListeners for each button
         if(e.getSource() == labels[0]) {
