@@ -7,21 +7,27 @@ import java.util.*;
 public class FemtonSpel extends JFrame implements ActionListener {
 
     JButton newgame = new JButton("Nytt spel");
-    JPanel panel = new JPanel();
-    JButton[] labels = new JButton[16];
+    JPanel gamePanel = new JPanel();
+    JPanel topPanel = new JPanel();
+    JButton[] bricks = new JButton[16];
     String empty = " ";
 
     public FemtonSpel(){
-        panel.setLayout(new GridLayout(4,4));
-        add(newgame,BorderLayout.NORTH);
-        newgame.setHorizontalAlignment(SwingConstants.CENTER);
-        add(panel,BorderLayout.CENTER);
+        topPanel.setLayout(new FlowLayout());
+        newgame.setSize(50,25);
+        newgame.setBackground(new Color(173, 192, 203));
+        topPanel.add(newgame,SwingConstants.CENTER);
+
+        gamePanel.setLayout(new GridLayout(4,4));
+        add(topPanel,BorderLayout.NORTH);
+        add(gamePanel,BorderLayout.CENTER);
+
         addLabels();
       //  shuffle(); // Kommentera bort denna shuffle för redovisning av vinst
         addLabelsToFrame();
         newgame.addActionListener(this);
-        for(int i = 0; i < labels.length; i++){
-            labels[i].addActionListener(this);
+        for(int i = 0; i < bricks.length; i++){
+            bricks[i].addActionListener(this);
         }
 
         setLocation(200,200);
@@ -31,44 +37,44 @@ public class FemtonSpel extends JFrame implements ActionListener {
     }
 
     public void addLabels(){
-        for(int i = 0; i < labels.length; i++){
+        for(int i = 0; i < bricks.length; i++){
             if(i == 15){
-                labels[15] = new JButton(empty);
-                labels[15].setBorder(new BevelBorder(BevelBorder.LOWERED));
-                labels[i].setFont(new Font("Monospaced", Font.BOLD, 20));
-                labels[i].setBackground(Color.PINK);
-                labels[i].setVisible(false);
+                bricks[15] = new JButton(empty);
+                bricks[15].setBorder(new BevelBorder(BevelBorder.LOWERED));
+                bricks[i].setFont(new Font("Monospaced", Font.BOLD, 20));
+                bricks[i].setBackground(Color.PINK);
+                bricks[i].setVisible(false);
             }
             else {
-                labels[i] = new JButton("" + (i + 1));
-                labels[i].setBorder(new BevelBorder(BevelBorder.RAISED));
-                labels[i].setFont(new Font("Monospaced", Font.BOLD, 20));
-                labels[i].setBackground(Color.PINK);
+                bricks[i] = new JButton("" + (i + 1));
+                bricks[i].setBorder(new BevelBorder(BevelBorder.RAISED));
+                bricks[i].setFont(new Font("Monospaced", Font.BOLD, 20));
+                bricks[i].setBackground(Color.PINK);
             }
         }
     }
 
     public void shuffle(){
         Random nr = new Random();
-        for(int i = 0; i <labels.length; i++){
-            labels[i].setBorder(new BevelBorder(BevelBorder.RAISED));
-            labels[i].setVisible(true);
-            int tmpIndex = nr.nextInt(labels.length);
-            String tmp = labels[tmpIndex].getText();
-            labels[tmpIndex].setText(labels[i].getText());
-            labels[i].setText(tmp);
+        for(int i = 0; i < bricks.length; i++){
+            bricks[i].setBorder(new BevelBorder(BevelBorder.RAISED));
+            bricks[i].setVisible(true);
+            int tmpIndex = nr.nextInt(bricks.length);
+            String tmp = bricks[tmpIndex].getText();
+            bricks[tmpIndex].setText(bricks[i].getText());
+            bricks[i].setText(tmp);
         }
-        for (int i = 0; i < labels.length; i++) {
-            if(labels[i].getText().equals(empty)){
-                labels[i].setVisible(false);
+        for (int i = 0; i < bricks.length; i++) {
+            if(bricks[i].getText().equals(empty)){
+                bricks[i].setVisible(false);
                 break;
             }
         }
     }
 
     public void addLabelsToFrame(){
-        for(int i = 0; i < labels.length; i++){
-            panel.add(labels[i]);
+        for(int i = 0; i < bricks.length; i++){
+            gamePanel.add(bricks[i]);
 
         }
     }
@@ -125,24 +131,24 @@ public class FemtonSpel extends JFrame implements ActionListener {
     }
 
     public boolean nullFinder(int index){
-        return labels[index].getText().equals(empty);
+        return bricks[index].getText().equals(empty);
     }
 
     public void changeValue(int clickedIndex, int nullIndex) {
-        labels[nullIndex].setText(labels[clickedIndex].getText());
-        labels[nullIndex].setBorder(new BevelBorder(BevelBorder.RAISED));
-        labels[nullIndex].setVisible(true);
+        bricks[nullIndex].setText(bricks[clickedIndex].getText());
+        bricks[nullIndex].setBorder(new BevelBorder(BevelBorder.RAISED));
+        bricks[nullIndex].setVisible(true);
 
-        labels[clickedIndex].setText(empty);
-        labels[clickedIndex].setBorder(new BevelBorder(BevelBorder.LOWERED));
-        labels[clickedIndex].setVisible(false);
+        bricks[clickedIndex].setText(empty);
+        bricks[clickedIndex].setBorder(new BevelBorder(BevelBorder.LOWERED));
+        bricks[clickedIndex].setVisible(false);
 
     }
 
     public String convertArrayToString() {
         String result = "";
-        for(int i = 0; i < labels.length; i++){
-            result += labels[i].getText();
+        for(int i = 0; i < bricks.length; i++){
+            result += bricks[i].getText();
         }
         return result;
     }
@@ -154,9 +160,9 @@ public class FemtonSpel extends JFrame implements ActionListener {
     }
 
     public void reset(){
-        for(int i = 0; i < labels.length; i++){
-            if(i == 15) labels[15].setText(empty);
-            else labels[i].setText(""+(i+1));
+        for(int i = 0; i < bricks.length; i++){
+            if(i == 15) bricks[15].setText(empty);
+            else bricks[i].setText(""+(i+1));
         }
     }
 
@@ -167,52 +173,52 @@ public class FemtonSpel extends JFrame implements ActionListener {
             shuffle();
         }
         // ActionListeners for each button
-        if(e.getSource() == labels[0]) {
+        if(e.getSource() == bricks[0]) {
             checkAction(0,1,4);
         }
-        if(e.getSource() == labels[1]) {
+        if(e.getSource() == bricks[1]) {
             checkAction(1,0,2,5);
         }
-        if(e.getSource() == labels[2]) {
+        if(e.getSource() == bricks[2]) {
             checkAction(2,1,3,6);
         }
-        if(e.getSource() == labels[3]) {
+        if(e.getSource() == bricks[3]) {
             checkAction(3,2,7);
         }
-        if(e.getSource() == labels[4]) {
+        if(e.getSource() == bricks[4]) {
             checkAction(4,0,5,8);
         }
-        if(e.getSource() == labels[5]) {
+        if(e.getSource() == bricks[5]) {
             checkAction(5,1,4,6,9);
         }
-        if(e.getSource() == labels[6]) {
+        if(e.getSource() == bricks[6]) {
             checkAction(6,2,5,7,10);
         }
-        if(e.getSource() == labels[7]) {
+        if(e.getSource() == bricks[7]) {
             checkAction(7,3,6,11);
         }
-        if(e.getSource() == labels[8]) {
+        if(e.getSource() == bricks[8]) {
             checkAction(8,4,9,12);
         }
-        if(e.getSource() == labels[9]) {
+        if(e.getSource() == bricks[9]) {
             checkAction(9,5,8,10,13);
         }
-        if(e.getSource() == labels[10]) {
+        if(e.getSource() == bricks[10]) {
             checkAction(10,6,9,11,14);
         }
-        if(e.getSource() == labels[11]) {
+        if(e.getSource() == bricks[11]) {
             checkAction(11,7,10,15);
         }
-        if(e.getSource() == labels[12]) {
+        if(e.getSource() == bricks[12]) {
             checkAction(12,8,13);
         }
-        if(e.getSource() == labels[13]) {
+        if(e.getSource() == bricks[13]) {
             checkAction(13,9,12,14);
         }
-        if(e.getSource() == labels[14]) {
+        if(e.getSource() == bricks[14]) {
             checkAction(14,10,13,15);
         }
-        if(e.getSource() == labels[15]) {
+        if(e.getSource() == bricks[15]) {
             checkAction(15,11,14);
         }
     }
