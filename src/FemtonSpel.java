@@ -42,7 +42,6 @@ public class FemtonSpel extends JFrame implements ActionListener {
             }
             else {
                 labels[i] = new JButton("" + (i + 1));
-                //labels[i].setBorder(new EtchedBorder());
                 labels[i].setBorder(new BevelBorder(BevelBorder.RAISED));
                 labels[i].setFont(new Font("Monospaced", Font.BOLD, 20));
                 labels[i].setBackground(Color.PINK);
@@ -54,14 +53,15 @@ public class FemtonSpel extends JFrame implements ActionListener {
         Random nr = new Random();
         for(int i = 0; i <labels.length; i++){
             labels[i].setBorder(new BevelBorder(BevelBorder.RAISED));
+            labels[i].setVisible(true);
             int tmpIndex = nr.nextInt(labels.length);
             String tmp = labels[tmpIndex].getText();
             labels[tmpIndex].setText(labels[i].getText());
             labels[i].setText(tmp);
         }
         for (int i = 0; i < labels.length; i++) {
-            if(labels[i].getText().equals("")){
-                labels[i].setBorder(new BevelBorder(BevelBorder.LOWERED));
+            if(labels[i].getText().equals(empty)){
+                labels[i].setVisible(false);
                 break;
             }
         }
@@ -131,7 +131,13 @@ public class FemtonSpel extends JFrame implements ActionListener {
 
     public void changeValue(int clickedIndex, int nullIndex) {
         labels[nullIndex].setText(labels[clickedIndex].getText());
+        labels[nullIndex].setBorder(new BevelBorder(BevelBorder.RAISED));
+        labels[nullIndex].setVisible(true);
+
         labels[clickedIndex].setText(empty);
+        labels[clickedIndex].setBorder(new BevelBorder(BevelBorder.LOWERED));
+        labels[clickedIndex].setVisible(false);
+
     }
 
     public String convertArrayToString() {
