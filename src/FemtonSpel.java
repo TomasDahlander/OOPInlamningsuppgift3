@@ -11,6 +11,7 @@ public class FemtonSpel extends JFrame implements ActionListener {
     JPanel topPanel = new JPanel();
     JButton[] bricks = new JButton[16];
     String empty = " ";
+    int counter = 0;
 
     public FemtonSpel(){
         setTitle("Fifteen - It's in the Game");
@@ -24,7 +25,7 @@ public class FemtonSpel extends JFrame implements ActionListener {
         add(gamePanel,BorderLayout.CENTER);
 
         addLabels();
-      //  shuffle(); // Kommentera bort denna shuffle för redovisning av vinst
+        shuffle(); // Kommentera bort denna shuffle för redovisning av vinst
         addLabelsToFrame();
         newgame.addActionListener(this);
         for(int i = 0; i < bricks.length; i++){
@@ -88,7 +89,7 @@ public class FemtonSpel extends JFrame implements ActionListener {
 
         if(ok){
             changeValue(pressedIndex, changeIndex);
-            if(isWinner()) declareWinner();
+        //    if(isWinner()) declareWinner();
         }
     }
 
@@ -101,7 +102,7 @@ public class FemtonSpel extends JFrame implements ActionListener {
 
         if(ok){
             changeValue(pressedIndex, changeIndex);
-            if(isWinner()) declareWinner();
+        //    if(isWinner()) declareWinner();
         }
     }
 
@@ -115,7 +116,7 @@ public class FemtonSpel extends JFrame implements ActionListener {
 
         if(ok){
             changeValue(pressedIndex, changeIndex);
-            if(isWinner()) declareWinner();
+         //   if(isWinner()) declareWinner();
         }
     }
 
@@ -132,6 +133,7 @@ public class FemtonSpel extends JFrame implements ActionListener {
         bricks[clickedIndex].setBorder(new BevelBorder(BevelBorder.LOWERED));
         bricks[clickedIndex].setVisible(false);
 
+        counter++;
     }
 
     public String convertArrayToString() {
@@ -164,26 +166,29 @@ public class FemtonSpel extends JFrame implements ActionListener {
 
     public void shuffleByHand(){
         Random rand = new Random();
-        for(int i = 0; i < 50000; i++){
-            int move = rand.nextInt(16);
-            if(move == 0) checkAction(0,1,4);
-            if(move == 1)checkAction(1,0,2,5);
-            if(move == 2)checkAction(2,1,3,6);
-            if(move == 3)checkAction(3,2,7);
-            if(move == 4)checkAction(4,0,5,8);
-            if(move == 5)checkAction(5,1,4,6,9);
-            if(move == 6)checkAction(6,2,5,7,10);
-            if(move == 7)checkAction(7,3,6,11);
-            if(move == 8)checkAction(8,4,9,12);
-            if(move == 9)checkAction(9,5,8,10,13);
-            if(move == 10)checkAction(10,6,9,11,14);
-            if(move == 11)checkAction(11,7,10,15);
-            if(move == 12)checkAction(12,8,13);
-            if(move == 13)checkAction(13,9,12,14);
-            if(move == 14)checkAction(14,10,13,15);
-            if(move == 15)checkAction(15,11,14);
+        while(isWinner()) {
+            for (int i = 0; i < 1000; i++) {    // datorn gör i snitt 18,75 % av loopantalet i antal drag
+                int move = rand.nextInt(16);
+                if (move == 0) checkAction(0, 1, 4);
+                else if (move == 1) checkAction(1, 0, 2, 5);
+                else if (move == 2) checkAction(2, 1, 3, 6);
+                else if (move == 3) checkAction(3, 2, 7);
+                else if (move == 4) checkAction(4, 0, 5, 8);
+                else if (move == 5) checkAction(5, 1, 4, 6, 9);
+                else if (move == 6) checkAction(6, 2, 5, 7, 10);
+                else if (move == 7) checkAction(7, 3, 6, 11);
+                else if (move == 8) checkAction(8, 4, 9, 12);
+                else if (move == 9) checkAction(9, 5, 8, 10, 13);
+                else if (move == 10) checkAction(10, 6, 9, 11, 14);
+                else if (move == 11) checkAction(11, 7, 10, 15);
+                else if (move == 12) checkAction(12, 8, 13);
+                else if (move == 13) checkAction(13, 9, 12, 14);
+                else if (move == 14) checkAction(14, 10, 13, 15);
+                else checkAction(15, 11, 14);
+            }
+            System.out.println("Drag gjorda: " + counter);
+            counter = 0;
         }
-
     }
 
     @Override
@@ -194,52 +199,52 @@ public class FemtonSpel extends JFrame implements ActionListener {
             shuffleByHand();
         }
         // ActionListeners for each button
-        if(e.getSource() == bricks[0]) {
+        else if(e.getSource() == bricks[0]) {
             checkAction(0,1,4);
         }
-        if(e.getSource() == bricks[1]) {
+        else if(e.getSource() == bricks[1]) {
             checkAction(1,0,2,5);
         }
-        if(e.getSource() == bricks[2]) {
+        else if(e.getSource() == bricks[2]) {
             checkAction(2,1,3,6);
         }
-        if(e.getSource() == bricks[3]) {
+        else if(e.getSource() == bricks[3]) {
             checkAction(3,2,7);
         }
-        if(e.getSource() == bricks[4]) {
+        else if(e.getSource() == bricks[4]) {
             checkAction(4,0,5,8);
         }
-        if(e.getSource() == bricks[5]) {
+        else if(e.getSource() == bricks[5]) {
             checkAction(5,1,4,6,9);
         }
-        if(e.getSource() == bricks[6]) {
+        else if(e.getSource() == bricks[6]) {
             checkAction(6,2,5,7,10);
         }
-        if(e.getSource() == bricks[7]) {
+        else if(e.getSource() == bricks[7]) {
             checkAction(7,3,6,11);
         }
-        if(e.getSource() == bricks[8]) {
+        else if(e.getSource() == bricks[8]) {
             checkAction(8,4,9,12);
         }
-        if(e.getSource() == bricks[9]) {
+        else if(e.getSource() == bricks[9]) {
             checkAction(9,5,8,10,13);
         }
-        if(e.getSource() == bricks[10]) {
+        else if(e.getSource() == bricks[10]) {
             checkAction(10,6,9,11,14);
         }
-        if(e.getSource() == bricks[11]) {
+        else if(e.getSource() == bricks[11]) {
             checkAction(11,7,10,15);
         }
-        if(e.getSource() == bricks[12]) {
+        else if(e.getSource() == bricks[12]) {
             checkAction(12,8,13);
         }
-        if(e.getSource() == bricks[13]) {
+        else if(e.getSource() == bricks[13]) {
             checkAction(13,9,12,14);
         }
-        if(e.getSource() == bricks[14]) {
+        else if(e.getSource() == bricks[14]) {
             checkAction(14,10,13,15);
         }
-        if(e.getSource() == bricks[15]) {
+        else if(e.getSource() == bricks[15]) {
             checkAction(15,11,14);
         }
     }
@@ -249,4 +254,5 @@ public class FemtonSpel extends JFrame implements ActionListener {
     }
 }
 
-//TODO DESGIN
+//TODO Gör ny metod för perform action utan declare winner
+//TODO Gör en knapp till där man kan välja lättare svårighetsgrad och en med mindre helt random
