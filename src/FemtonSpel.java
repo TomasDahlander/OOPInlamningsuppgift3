@@ -169,7 +169,7 @@ public class FemtonSpel extends JFrame implements ActionListener {
             shuffle();
         }
         // ActionListeners for each button
-        if(e.getSource() == bricks[0]) {
+        else if(e.getSource() == bricks[0]) {
             checkAction(0,1,4);
         } else if(e.getSource() == bricks[1]) {
             checkAction(1,0,2,5);
