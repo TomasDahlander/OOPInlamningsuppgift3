@@ -6,13 +6,13 @@ import java.util.*;
 
 public class FemtonSpel extends JFrame implements ActionListener {
 
-    JButton newgame = new JButton("New Game");
-    JPanel gamePanel = new JPanel();
-    JPanel topPanel = new JPanel();
-    JButton[] bricks = new JButton[16];
-    String empty = " ";
-    int counter = 0;
-    JLabel counterLabel = new JLabel("Number of moves: "+counter);
+    protected JButton newgame = new JButton("New Game");
+    protected JPanel gamePanel = new JPanel();
+    protected JPanel topPanel = new JPanel();
+    protected JButton[] bricks = new JButton[16];
+    protected String empty = " ";
+    protected int counter = 0;
+    protected JLabel counterLabel = new JLabel("Number of moves: "+counter);
 
     public FemtonSpel(){
         setTitle("Fifteen - It's in the Game");
