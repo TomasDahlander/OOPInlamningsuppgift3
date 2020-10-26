@@ -24,7 +24,7 @@ public class FemtonSpel extends JFrame implements ActionListener {
         add(topPanel,BorderLayout.NORTH);
         add(gamePanel,BorderLayout.CENTER);
 
-        addLabels();
+        addBricks();
         shuffle(); // Kommentera bort denna shuffle för redovisning av vinst
         addLabelsToFrame();
         newgame.addActionListener(this);
@@ -38,7 +38,7 @@ public class FemtonSpel extends JFrame implements ActionListener {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
-    public void addLabels(){
+    public void addBricks(){
         for(int i = 0; i < bricks.length; i++){
             if(i == 15){
                 bricks[15] = new JButton(empty);
@@ -167,7 +167,7 @@ public class FemtonSpel extends JFrame implements ActionListener {
     public void shuffleByHand(){
         Random rand = new Random();
         while(isWinner()) {
-            for (int i = 0; i < 1000; i++) {    // datorn gör i snitt 18,75 % av loopantalet i antal drag
+            for (int i = 0; i < 500; i++) {    // datorn gör i snitt 18,75 % av loopantalet i antal drag
                 int move = rand.nextInt(16);
                 if (move == 0) checkAction(0, 1, 4);
                 else if (move == 1) checkAction(1, 0, 2, 5);
