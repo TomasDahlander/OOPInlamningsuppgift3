@@ -13,7 +13,7 @@ public class FemtonSpel extends JFrame implements ActionListener {
     String empty = " ";
     int counter = 0;
     JLabel counterLabel = new JLabel("Number of moves: "+counter);
-    
+
     public FemtonSpel(){
         setTitle("Fifteen - It's in the Game");
         topPanel.setLayout(new FlowLayout());
@@ -44,7 +44,7 @@ public class FemtonSpel extends JFrame implements ActionListener {
         for(int i = 0; i < bricks.length; i++){
             if(i == 15){
                 bricks[15] = new JButton(empty);
-                bricks[15].setBorder(new BevelBorder(BevelBorder.LOWERED));
+                bricks[15].setBorder(new BevelBorder(BevelBorder.RAISED));
                 bricks[i].setFont(new Font("Monospaced", Font.BOLD, 20));
                 bricks[i].setBackground(Color.PINK);
                 bricks[i].setVisible(false);
@@ -128,11 +128,9 @@ public class FemtonSpel extends JFrame implements ActionListener {
 
     public void changeValue(int clickedIndex, int nullIndex) {
         bricks[nullIndex].setText(bricks[clickedIndex].getText());
-        bricks[nullIndex].setBorder(new BevelBorder(BevelBorder.RAISED));
         bricks[nullIndex].setVisible(true);
 
         bricks[clickedIndex].setText(empty);
-        bricks[clickedIndex].setBorder(new BevelBorder(BevelBorder.LOWERED));
         bricks[clickedIndex].setVisible(false);
 
         counter++;
