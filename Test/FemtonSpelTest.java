@@ -16,17 +16,16 @@ public class FemtonSpelTest {
         assertEquals(go.nullFinder(0),true);
         assertEquals(go.nullFinder(1),false);
     }
-
     @Test
     public final void convertArrayToStringTest(){
-        go.addLabels();
+        go.addBricks();
         assertEquals(go.convertArrayToString(),"123456789101112131415 ");
         assertNotEquals(go.convertArrayToString(),"123456789101112131514 ");
     }
 
     @Test
     public final void isWinnerTest(){
-        go.addLabels();
+        go.addBricks();
         System.out.println(go.convertArrayToString());
         System.out.println("123456789101112131415 ");
 

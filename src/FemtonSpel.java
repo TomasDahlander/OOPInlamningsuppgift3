@@ -13,8 +13,7 @@ public class FemtonSpel extends JFrame implements ActionListener {
     String empty = " ";
     int counter = 0;
     JLabel counterLabel = new JLabel("Number of moves: "+counter);
-
-
+    
     public FemtonSpel(){
         setTitle("Fifteen - It's in the Game");
         topPanel.setLayout(new FlowLayout());
